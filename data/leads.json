@@ -1,0 +1,33 @@
+[
+  {
+    "id": "943043e8-26e2-4b56-af63-5de50ee9c93a",
+    "createdAt": "2026-05-31T21:21:02.521Z",
+    "campaignSlug": "artist-lead-magnet",
+    "campaignPath": "/artist-lead-magnet",
+    "name": "Sebastien (REDMOONREDMOON)",
+    "email": "sebastien.marchi@gmail.com",
+    "role": "Manager",
+    "goal": "Lead magnet: Transform Your Music Into an Infinite Repeat Business\nArtist/project: REDMOONREDMOON\nGenre: ROCK\nAudience: 1,000 - 10,000 fans\nMain platform: Apple Music\nBiggest goal: Build a repeat revenue system",
+    "source": "Apple Music",
+    "score": 77,
+    "status": "qualified",
+    "tags": [
+      "artist-lead-magnet",
+      "high-intent",
+      "artist",
+      "fan",
+      "manager",
+      "rock",
+      "1,000 - 10,000 fans",
+      "apple music"
+    ],
+    "utm": {
+      "source": "direct",
+      "medium": "none",
+      "campaign": "none",
+      "content": "none",
+      "term": "none"
+    },
+    "nextUrl": "https://fanfaktors.com/signup?persona=artist&lead_id=943043e8-26e2-4b56-af63-5de50ee9c93a&utm_campaign=artist-lead-magnet&utm_source=growth_os"
+  }
+]
