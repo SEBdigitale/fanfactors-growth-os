@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { ArtistLeadMagnetLanding } from "@/components/ArtistLeadMagnetLanding";
 
 export default function HomePage() {
-  redirect("/artist-lead-magnet");
+  return <ArtistLeadMagnetLanding />;
 }
