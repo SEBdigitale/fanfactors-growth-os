@@ -1,6 +1,29 @@
 import type { Lead } from "@/lib/types";
 import type { LeadEvent } from "@/lib/events";
 
+export type MessageDraftRow = {
+  id: string;
+  createdAt: string;
+  leadId: string | null;
+  channel: string;
+  subject: string | null;
+  body: string;
+  status: string;
+  approvedAt: string | null;
+  sentAt: string | null;
+};
+
+export type AgentRunRow = {
+  id: string;
+  createdAt: string;
+  leadId: string | null;
+  agentName: string;
+  status: string;
+  input: Record<string, unknown>;
+  output: Record<string, unknown>;
+  error: string | null;
+};
+
 const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -97,6 +120,33 @@ export function rowToEvent(row: Record<string, any>): LeadEvent {
   };
 }
 
+export function rowToMessageDraft(row: Record<string, any>): MessageDraftRow {
+  return {
+    id: row.id,
+    createdAt: row.created_at,
+    leadId: row.lead_id,
+    channel: row.channel,
+    subject: row.subject,
+    body: row.body,
+    status: row.status,
+    approvedAt: row.approved_at,
+    sentAt: row.sent_at
+  };
+}
+
+export function rowToAgentRun(row: Record<string, any>): AgentRunRow {
+  return {
+    id: row.id,
+    createdAt: row.created_at,
+    leadId: row.lead_id,
+    agentName: row.agent_name,
+    status: row.status,
+    input: row.input || {},
+    output: row.output || {},
+    error: row.error
+  };
+}
+
 export async function insertLeadRow(lead: Lead) {
   const rows = await supabaseRequest<Record<string, any>[]>(
     "leads",
@@ -155,4 +205,22 @@ export async function selectLeadEventRows() {
     "?select=*&order=created_at.desc"
   );
   return rows.map(rowToEvent);
+}
+
+export async function selectMessageDraftRows() {
+  const rows = await supabaseRequest<Record<string, any>[]>(
+    "message_drafts",
+    { method: "GET" },
+    "?select=*&order=created_at.desc"
+  );
+  return rows.map(rowToMessageDraft);
+}
+
+export async function selectAgentRunRows() {
+  const rows = await supabaseRequest<Record<string, any>[]>(
+    "agent_runs",
+    { method: "GET" },
+    "?select=*&order=created_at.desc"
+  );
+  return rows.map(rowToAgentRun);
 }
