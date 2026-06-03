@@ -1,5 +1,5 @@
 import { DashboardShell, KpiCard, StatusBadge } from "@/components/DashboardShell";
-import { getDashboardData } from "@/lib/dashboard";
+import { formatAgentStatus, getDashboardData } from "@/lib/dashboard";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +29,9 @@ export default async function MessageApprovalPage() {
                 <span>{draft.channel}</span>
                 <h2>{draft.subject || "Untitled draft"}</h2>
               </div>
-              <StatusBadge tone={draft.status === "needs_review" ? "warn" : "neutral"}>{draft.status}</StatusBadge>
+              <StatusBadge tone={draft.status === "needs_review" ? "warn" : "neutral"}>
+                {formatAgentStatus(draft.status)}
+              </StatusBadge>
             </div>
             <p>{draft.body}</p>
             <div className="dashboard-approval-actions" aria-label="Approval actions">
