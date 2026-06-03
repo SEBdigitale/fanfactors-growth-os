@@ -17,9 +17,14 @@ export default async function AdminLeadsPage() {
           <h1>Lead command center</h1>
           <p>Review captured demand, qualification score, tags, and tracked FanFactors handoff links.</p>
         </div>
-        <Link className="secondary-link" href="/">
-          Campaigns
-        </Link>
+        <div className="admin-actions">
+          <Link className="secondary-link" href="/admin/reactor">
+            MC2 Reactor
+          </Link>
+          <Link className="secondary-link" href="/">
+            Campaigns
+          </Link>
+        </div>
       </header>
 
       <section className="stats-grid" aria-label="Lead stats">
