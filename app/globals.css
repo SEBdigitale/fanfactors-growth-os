@@ -227,6 +227,12 @@ textarea {
   padding: 16px;
 }
 
+.dashboard-main > .dashboard-card {
+  max-width: var(--dashboard-rail);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .dashboard-card-header,
 .dashboard-table-tools {
   display: flex;
@@ -254,24 +260,29 @@ textarea {
 .dashboard-badge {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 0 9px;
-  border-radius: 999px;
-  background: #eef2ef;
-  color: #4f5a54;
-  font-size: 11px;
-  font-weight: 950;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid #d7dfda;
+  border-radius: 6px;
+  background: #f5f7f5;
+  color: #3f4943;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
 .dashboard-badge-good {
-  background: rgba(13, 122, 107, 0.12);
+  border-color: rgba(13, 122, 107, 0.28);
+  background: rgba(13, 122, 107, 0.1);
   color: #075d52;
 }
 
 .dashboard-badge-warn {
-  background: rgba(211, 159, 47, 0.16);
-  color: #815a09;
+  border-color: rgba(211, 159, 47, 0.34);
+  background: #fbf4e4;
+  color: #6d4e0d;
 }
 
 .dashboard-meter {
