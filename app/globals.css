@@ -34,9 +34,10 @@ textarea {
 }
 
 .dashboard-app {
+  --dashboard-rail: 1240px;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   background: #eef2ef;
   color: #111417;
 }
@@ -47,8 +48,8 @@ textarea {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding: 24px 18px;
+  gap: 22px;
+  padding: 20px 14px;
   border-right: 1px solid #d9e0dc;
   background:
     linear-gradient(180deg, rgba(149, 255, 0, 0.08), transparent 28%),
@@ -59,8 +60,8 @@ textarea {
 .dashboard-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 48px;
+  gap: 10px;
+  min-height: 42px;
   text-decoration: none;
 }
 
@@ -77,20 +78,20 @@ textarea {
 }
 
 .dashboard-brand strong {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.05;
 }
 
 .dashboard-menu {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .dashboard-menu a {
   display: flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 12px;
+  min-height: 38px;
+  padding: 0 10px;
   border-radius: 8px;
   color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
@@ -106,31 +107,31 @@ textarea {
 
 .dashboard-main {
   min-width: 0;
-  padding: 28px;
+  padding: 26px 30px;
 }
 
 .dashboard-topbar {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
-  max-width: 1320px;
-  margin: 0 auto 20px;
+  gap: 18px;
+  max-width: var(--dashboard-rail);
+  margin: 0 auto 16px;
 }
 
 .dashboard-topbar h1 {
   margin: 0;
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(38px, 4.5vw, 58px);
   line-height: 0.95;
   letter-spacing: 0;
 }
 
 .dashboard-topbar p {
   max-width: 780px;
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   color: #58615b;
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .dashboard-eyebrow,
@@ -139,7 +140,7 @@ textarea {
 .dashboard-campaign-stats span {
   display: block;
   color: #58615b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 950;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -147,8 +148,8 @@ textarea {
 
 .dashboard-client-pill {
   flex: 0 0 auto;
-  min-width: 180px;
-  padding: 14px 16px;
+  min-width: 156px;
+  padding: 12px 14px;
   border: 1px solid #d9e0dc;
   border-radius: 8px;
   background: #fff;
@@ -165,9 +166,8 @@ textarea {
 .dashboard-approval-list,
 .dashboard-agent-grid,
 .dashboard-report-grid,
-.dashboard-config-grid,
-.dashboard-card {
-  max-width: 1320px;
+.dashboard-config-grid {
+  max-width: var(--dashboard-rail);
   margin-right: auto;
   margin-left: auto;
 }
@@ -175,8 +175,8 @@ textarea {
 .dashboard-kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .dashboard-kpi,
@@ -184,33 +184,33 @@ textarea {
   border: 1px solid #d9e0dc;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 46px rgba(7, 17, 12, 0.06);
+  box-shadow: 0 10px 24px rgba(7, 17, 12, 0.05);
 }
 
 .dashboard-kpi {
-  min-height: 148px;
-  padding: 18px;
+  min-height: 118px;
+  padding: 16px;
 }
 
 .dashboard-kpi strong {
   display: block;
-  margin-top: 12px;
-  font-size: clamp(28px, 3vw, 42px);
+  margin-top: 10px;
+  font-size: clamp(26px, 2.7vw, 36px);
   line-height: 1;
 }
 
 .dashboard-kpi p,
 .dashboard-card p,
 .dashboard-list-row p {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: #58615b;
-  line-height: 1.48;
+  line-height: 1.42;
 }
 
 .dashboard-grid {
   display: grid;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .dashboard-grid-main {
@@ -222,7 +222,9 @@ textarea {
 }
 
 .dashboard-card {
-  padding: 20px;
+  width: 100%;
+  min-width: 0;
+  padding: 16px;
 }
 
 .dashboard-card-header,
@@ -230,15 +232,15 @@ textarea {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 12px;
 }
 
 .dashboard-card h2,
 .dashboard-table-tools h2 {
-  margin: 6px 0 0;
-  font-size: clamp(22px, 2vw, 32px);
-  line-height: 1.04;
+  margin: 5px 0 0;
+  font-size: clamp(20px, 1.75vw, 28px);
+  line-height: 1.05;
 }
 
 .dashboard-card-header a,
@@ -253,11 +255,11 @@ textarea {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
-  padding: 0 10px;
+  padding: 0 9px;
   border-radius: 999px;
   background: #eef2ef;
   color: #4f5a54;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 950;
   white-space: nowrap;
 }
@@ -273,7 +275,7 @@ textarea {
 }
 
 .dashboard-meter {
-  height: 14px;
+  height: 10px;
   overflow: hidden;
   border-radius: 999px;
   background: #dfe6e1;
@@ -291,8 +293,8 @@ textarea {
 .dashboard-filter-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+  gap: 8px;
+  margin-top: 14px;
 }
 
 .dashboard-action-row a,
@@ -300,13 +302,13 @@ textarea {
 .dashboard-filter-pills b {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 0 12px;
+  min-height: 34px;
+  padding: 0 10px;
   border-radius: 6px;
   border: 1px solid #d9e0dc;
   background: #f8faf8;
   color: #111417;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
 }
 
@@ -322,15 +324,15 @@ textarea {
 
 .dashboard-list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .dashboard-list-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 12px;
+  gap: 12px;
+  padding: 10px;
   border: 1px solid #e0e5e1;
   border-radius: 8px;
   background: #f9fbfa;
@@ -356,7 +358,7 @@ textarea {
 
 .dashboard-table th,
 .dashboard-table td {
-  padding: 14px 12px;
+  padding: 12px 10px;
   border-bottom: 1px solid #e0e5e1;
   text-align: left;
   vertical-align: top;
@@ -364,14 +366,14 @@ textarea {
 
 .dashboard-table th {
   color: #58615b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 950;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .dashboard-table td {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .dashboard-table td strong,
@@ -387,22 +389,22 @@ textarea {
 .dashboard-campaign-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
 }
 
 .dashboard-campaign-card {
-  min-height: 280px;
+  min-height: 244px;
 }
 
 .dashboard-campaign-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 18px 0;
+  gap: 8px;
+  margin: 14px 0;
 }
 
 .dashboard-campaign-stats div {
-  padding: 14px;
+  padding: 12px;
   border: 1px solid #e0e5e1;
   border-radius: 8px;
   background: #f9fbfa;
@@ -410,8 +412,8 @@ textarea {
 
 .dashboard-campaign-stats strong {
   display: block;
-  margin-top: 8px;
-  font-size: 26px;
+  margin-top: 6px;
+  font-size: 24px;
 }
 
 .dashboard-approval-list,
@@ -419,7 +421,7 @@ textarea {
 .dashboard-report-grid,
 .dashboard-config-grid {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .dashboard-approval-list {
@@ -427,7 +429,7 @@ textarea {
 }
 
 .dashboard-approval-card p {
-  min-height: 76px;
+  min-height: 58px;
 }
 
 .dashboard-agent-grid {
@@ -435,7 +437,7 @@ textarea {
 }
 
 .dashboard-code-block {
-  padding: 14px;
+  padding: 12px;
   border: 1px solid #e0e5e1;
   border-radius: 8px;
   background: #07110c;
@@ -463,11 +465,11 @@ textarea {
 
 .dashboard-bullet-list {
   display: grid;
-  gap: 10px;
-  margin: 16px 0 0;
+  gap: 8px;
+  margin: 12px 0 0;
   padding-left: 18px;
   color: #58615b;
-  line-height: 1.45;
+  line-height: 1.42;
 }
 
 .dashboard-empty,
