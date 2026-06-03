@@ -429,6 +429,7 @@ textarea {
 
 .dashboard-approval-list,
 .dashboard-agent-grid,
+.dashboard-agent-group-grid,
 .dashboard-report-grid,
 .dashboard-config-grid {
   display: grid;
@@ -445,6 +446,60 @@ textarea {
 
 .dashboard-agent-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-agent-group-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-agent-group:first-child,
+.dashboard-agent-group:last-child {
+  grid-column: span 2;
+}
+
+.dashboard-agent-list {
+  display: grid;
+  gap: 10px;
+}
+
+.dashboard-agent-row {
+  padding: 12px;
+  border: 1px solid #e0e5e1;
+  border-radius: 8px;
+  background: #f9fbfa;
+}
+
+.dashboard-agent-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dashboard-agent-row-top strong {
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.dashboard-agent-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dashboard-agent-summary div {
+  padding: 10px;
+  border: 1px solid #e0e5e1;
+  border-radius: 8px;
+  background: #f9fbfa;
+}
+
+.dashboard-agent-summary strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 24px;
+  line-height: 1;
 }
 
 .dashboard-code-block {
@@ -467,6 +522,15 @@ textarea {
   font-size: 12px;
   line-height: 1.5;
   white-space: pre-wrap;
+}
+
+.dashboard-code-block-compact {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.dashboard-code-block-compact pre {
+  max-height: 96px;
 }
 
 .dashboard-report-grid,
@@ -1080,9 +1144,15 @@ textarea {
   .dashboard-campaign-grid,
   .dashboard-approval-list,
   .dashboard-agent-grid,
+  .dashboard-agent-group-grid,
   .dashboard-report-grid,
   .dashboard-config-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-agent-group:first-child,
+  .dashboard-agent-group:last-child {
+    grid-column: span 2;
   }
 
   .dashboard-topbar {
@@ -1123,10 +1193,16 @@ textarea {
   .dashboard-campaign-grid,
   .dashboard-approval-list,
   .dashboard-agent-grid,
+  .dashboard-agent-group-grid,
   .dashboard-report-grid,
   .dashboard-config-grid,
   .dashboard-campaign-stats {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-agent-group:first-child,
+  .dashboard-agent-group:last-child {
+    grid-column: auto;
   }
 
   .dashboard-topbar h1 {

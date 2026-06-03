@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { DashboardShell, KpiCard, StatusBadge } from "@/components/DashboardShell";
-import { getDashboardData } from "@/lib/dashboard";
+import { formatAgentStatus, getAgentStatusTone, getDashboardData } from "@/lib/dashboard";
 
 export const dynamic = "force-dynamic";
 
@@ -8,6 +8,9 @@ export default async function MissionControlPage() {
   const { agents, approvals, campaigns, health, leads, metrics, report } = await getDashboardData();
   const recentLeads = leads.slice(0, 5);
   const topCampaigns = campaigns.slice().sort((a, b) => b.leads - a.leads).slice(0, 3);
+  const activeAgents = agents.filter((agent) => ["active", "ready", "guarding", "scheduled"].includes(agent.status));
+  const reviewAgents = agents.filter((agent) => agent.status === "needs_review");
+  const latestDecision = agents.find((agent) => agent.shortName === "Strategy Architect") ?? agents[0];
 
   return (
     <DashboardShell
@@ -106,14 +109,28 @@ export default async function MissionControlPage() {
               <span>Agent state</span>
               <h2>{agents.length} agents</h2>
             </div>
+            <StatusBadge tone={reviewAgents.length ? "warn" : "good"}>
+              {reviewAgents.length ? `${reviewAgents.length} review` : "Clear"}
+            </StatusBadge>
+          </div>
+          <div className="dashboard-agent-summary">
+            <div>
+              <span>Active / ready</span>
+              <strong>{activeAgents.length}</strong>
+            </div>
+            <div>
+              <span>Needs review</span>
+              <strong>{reviewAgents.length}</strong>
+            </div>
           </div>
           <div className="dashboard-list">
-            {agents.slice(0, 4).map((agent) => (
+            {agents.slice(0, 5).map((agent) => (
               <div key={agent.id} className="dashboard-list-row">
                 <div>
-                  <strong>{agent.agentName.replace(" Agent", "")}</strong>
-                  <p>{agent.status}</p>
+                  <strong>{agent.shortName}</strong>
+                  <p>{agent.group}</p>
                 </div>
+                <StatusBadge tone={getAgentStatusTone(agent.status)}>{formatAgentStatus(agent.status)}</StatusBadge>
               </div>
             ))}
           </div>
@@ -129,6 +146,23 @@ export default async function MissionControlPage() {
           <Link href="/reports">Open reports</Link>
         </div>
         <p>{report.summary}</p>
+      </section>
+
+      <section className="dashboard-card">
+        <div className="dashboard-card-header">
+          <div>
+            <span>Latest agent decision</span>
+            <h2>{latestDecision.shortName}</h2>
+          </div>
+          <StatusBadge tone={getAgentStatusTone(latestDecision.status)}>
+            {formatAgentStatus(latestDecision.status)}
+          </StatusBadge>
+        </div>
+        <p>{latestDecision.purpose}</p>
+        <div className="dashboard-code-block dashboard-code-block-compact">
+          <strong>Decision data</strong>
+          <pre>{JSON.stringify(latestDecision.output, null, 2)}</pre>
+        </div>
       </section>
     </DashboardShell>
   );
